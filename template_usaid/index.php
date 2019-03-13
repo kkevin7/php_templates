@@ -28,7 +28,7 @@
                 <a href="#" class="btn-menu" id="btn-menu"><i class="icono fa fa-bars" aria-hidden="true"></i></a>
             </div>
             <div class="enlaces" id="enlaces">
-                <a href="index.php?contenido="><i class="fas fa-home" aria-hidden="true"></i>Inicio</a>
+                <a href="index.php"><i class="fas fa-home" aria-hidden="true"></i>Inicio</a>
                 <a href="index.php?contenido=pages/ejercicio1.php"><i class="fas fa-code" aria-hidden="true"></i>Ejercicio1</a>
                 <a href="index.php?contenido=pages/ejercicio2.php"><i class="fas fa-code" aria-hidden="true"></i>Ejercicio2</a>
                 <a href="index.php?contenido=pages/ejercicio3.php"><i class="fas fa-code" aria-hidden="true"></i>Ejercicio3</a>
@@ -44,14 +44,9 @@
             <h1>Ejercicios de PHP</h1>
             <hr>
             <?php
-            try {
+            if (isset($_GET['contenido'])) {
                 $contenido = $_GET['contenido'];
-                if ($contenido != null && $contenido != "") {
-                    include ($contenido);
-                }
-            } catch (Throwable $mensaje) {
-                /*echo "<script>console.log('Debug Objects: " . $mensaje . "');</script>";*/
-                throw $mensaje;
+                include ($contenido);
             }
             ?>
         </article>
